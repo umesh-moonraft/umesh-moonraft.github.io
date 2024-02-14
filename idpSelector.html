@@ -631,7 +631,6 @@
         flex-direction: column;
         margin: 0;
         width: 100%;
-        gap: 40px;
       }
       .unified_container .row .panel-default #api .intro {
         display: block;
@@ -895,6 +894,7 @@
         justify-content: space-between;
         align-items: center;
         order: 1;
+        margin-top: 40px;
       }
 
       .unified_container .row .panel-default #api .social .options {
@@ -1170,7 +1170,19 @@
       }
 
       #api .buttons {
-        margin-top: 16px;
+        margin-top: auto;
+        display: flex;
+        justify-content: center;
+        order: 2;
+      }
+
+      #api .buttons button {
+        margin-top: 40px;
+      }
+
+      .entry,
+      .localAccount {
+        display: contents;
       }
     </style>
   </head>
