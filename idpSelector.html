@@ -6,11 +6,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
+    <!-- <link
       href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
       rel="stylesheet"
       type="text/css"
-    />
+    /> -->
     <style id="common">
       #AmazonExchange {
         background-image: url(https://homelyukb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/amazon.svg);
@@ -155,6 +155,7 @@
         --homely-sky: #00a3ff;
         --secondary-text: #3f3f3f;
         --grey: #d6d6d6;
+        --light-sky: #80d1ff;
       }
 
       body {
@@ -167,10 +168,8 @@
         text-align: left;
       }
       .container {
-        text-align: center;
-        width: 100%;
-        display: table;
-        height: 100vh;
+        justify-content: center;
+        display: flex;
         padding: 0;
       }
       a:focus {
@@ -220,12 +219,7 @@
         padding: 0;
         height: 100%;
       }
-      .row {
-        width: 100%;
-        margin: 0;
-        display: table-cell;
-        /* vertical-align: middle; */
-      }
+     
       ul {
         padding: 0;
       }
@@ -266,7 +260,6 @@
         color: #fff;
         font-size: 1em;
         border: none;
-        margin-left: auto;
         margin-top: 10px;
       }
       .buttons button:hover {
@@ -323,7 +316,6 @@
         display: none !important;
       }
       #attributeList ul li label[for="country"] {
-        float: left;
         display: inline-block !important;
       }
       #attributeList ul li label[for="cpiminternal_legalCountry"] {
@@ -478,202 +470,23 @@
       #attributeList ul li .helpLink {
         display: none;
       }
-      @media screen and (max-width: 100%) {
-        .row .panel-default .panel-body {
-          margin-top: 40px;
-        }
-        .row .panel-default .panel-body .branding img {
-          display: block;
-          height: 80px;
-          width: auto;
-          margin: 0 auto;
-        }
-        .row .panel-default .panel-body .branding h1 {
-          display: none;
-        }
-        .row .panel-default .panel-body h3 {
-          font-size: 1.5em;
-          margin-top: 15px;
-        }
-        #attributeVerification #attributeList ul li input {
-          width: 60%;
-          height: 40px;
-          margin-bottom: 10px;
-          border-radius: 0.2rem;
-          border: none;
-          text-indent: 10px;
-        }
-        #attributeVerification
-          #attributeList
-          ul
-          li
-          input::-webkit-input-placeholder {
-          text-indent: 10px;
-        }
-        #attributeVerification #attributeList ul li #email {
-          width: 65%;
-          float: left;
-          position: relative;
-          z-index: 2;
-        }
-        #attributeVerification #attributeList ul li #email_ver_but_verify {
-          background: 0 0;
-          border: 0;
-          color: #0067b8;
-          font-size: 1em;
-          position: relative;
-          right: 0;
-          top: 60px;
-          font-size: 1.1em;
-          width: auto;
-          z-index: 1;
-          height: 20px;
-        }
-        #attributeVerification #attributeList ul li #email_ver_input {
-          min-width: 50%;
-          width: 60%;
-          float: left;
-        }
-        #attributeVerification #attributeList ul li #email_ver_but_resend {
-          top: 10px;
-          font-size: 1.1em;
-          height: 20px;
-        }
-        #attributeVerification #attributeList ul li .attrEntry #email {
-          height: 40px;
-        }
-        #attributeVerification
-          #attributeList
-          ul
-          li
-          .attrEntry
-          .verify
-          #email_ver_but_send:after {
-          content: " Verify";
-          font-size: 1.1em;
-          font-style: bold;
-          margin-left: 40%;
-        }
-        #attributeVerification
-          #attributeList
-          ul
-          li
-          .attrEntry
-          .verify
-          #email_ver_but_send {
-          height: 40px;
-          width: auto;
-          float: right;
-          overflow: hidden;
-          text-indent: -200px;
-        }
-        #attributeVerification
-          #attributeList
-          ul
-          li
-          .attrEntry
-          .verify
-          #email_ver_but_edit {
-          margin-bottom: 15px;
-          border: none;
-          color: #fff;
-          background-color: #0067b8;
-          border-radius: 0.2rem;
-          font-size: 1em;
-          width: 30%;
-          height: 40px;
-          overflow: hidden;
-          padding-top: 6px;
-          margin-left: 40%;
-        }
-        #attributeVerification #attributeList ul li .attrEntry .verify:after {
-          content: " ";
-          display: block;
-          clear: both;
-        }
-        #attributeVerification #attributeList #verifying_blurb {
-          margin-top: 15px;
-        }
-        #attributeVerification .buttons #continue {
-          height: 40px;
-        }
-        #attributeVerification .buttons #cancel {
-          font-size: 1em;
-          left: 40%;
-        }
-      }
-      .panel,
-      .panel_layout,
-      .panel_layout_row,
-      body,
-      html {
-        height: 100%;
-      }
-      @media only screen and (max-width: 600px) {
-        img[data-tenant-branding-background="true"] {
-          display: none;
-        }
-        .container {
-          background-color: #fff;
-        }
-        .container .row .panel-default {
-          border-radius: 0;
-          border: none;
-          box-shadow: none;
-        }
-      }
+
       /* endinject */
     </style>
 
     <style>
-      /* Following are generated styles via gulp. */
-      /* inject: css */
-      .unified_container .row .panel-default {
-        margin-top: auto;
-        margin-bottom: auto;
-        height: 100%;
-        background-color: #fff;
-        min-width: 350px;
-        padding: 0px 24px;
-      }
-      .unified_container .row .panel-default .panel-body {
-        max-width: 380px;
-        width: auto;
-        margin: 0 auto;
-        padding: 0;
-        height: 100%;
-      }
-      .unified_container .row .panel-default .panel-body .companyName {
-        font-size: 1.5em;
-        margin-bottom: 45px;
-      }
-      .unified_container .row .panel-default .panel-body .companyLogo {
-        display: block;
-      }
-      .unified_container .row .panel-default .panel-body img {
-        max-width: 100%;
-        width: auto;
-        height: 70px;
-        margin: 0 auto;
-        display: block;
-        float: left;
-      }
-      .unified_container .row .panel-default .panel-body h3 {
-        font-size: 1.5em;
-        display: none;
-      }
-      .unified_container .row .panel-default #api {
+      .unified_container #api {
         display: flex;
         flex-direction: column;
         margin: 0;
         width: 100%;
         height: 100%;
       }
-      .unified_container .row .panel-default #api .intro {
+      .unified_container #api .intro {
         display: block;
         text-align: left;
       }
-      .unified_container .row .panel-default #api .intro h2 {
+      .unified_container #api .intro h2 {
         color: var(--secondary-text);
         font-size: 20px;
         font-weight: 300;
@@ -682,30 +495,23 @@
         text-align: left;
         margin: 0;
       }
-      .unified_container .row .panel-default #api .divider {
+      .unified_container #api .divider {
         display: none;
       }
-      .unified_container .row .panel-default #api .localAccount {
+      .unified_container #api .localAccount {
         position: relative;
         width: 100%;
       }
-      .unified_container .row .panel-default #api .localAccount .intro h2 {
+      .unified_container #api .localAccount .intro h2 {
         font-size: 20px;
         display: none;
       }
-      .unified_container .row .panel-default #api .localAccount .error {
+      .unified_container #api .localAccount .error {
         color: #b00;
         text-align: left;
       }
 
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .localAccount
-        .entry
-        .buttons
-        button {
+      .unified_container #api .localAccount .entry .buttons button {
         background-color: var(--homely-sky);
         border: none;
         cursor: pointer;
@@ -743,51 +549,24 @@
         text-align: right;
       }
 
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .localAccount
-        .entry
-        .buttons
-        button:hover {
+      .unified_container #api .localAccount .entry .buttons button:hover {
         -moz-box-shadow: none;
         -webkit-box-shadow: none;
         box-shadow: none;
         background-color: #0058ad;
         color: #fff;
       }
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .localAccount
-        .entry
-        .entry-item {
+      .unified_container #api .localAccount .entry .entry-item {
         position: relative;
         width: 100%;
         padding-top: 6px;
         padding-bottom: 6px;
         display: block;
       }
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .localAccount
-        .entry
-        .entry-item
-        label {
+      .unified_container #api .localAccount .entry .entry-item label {
         display: none;
       }
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .localAccount
-        .entry
-        .entry-item
-        input {
+      .unified_container #api .localAccount .entry .entry-item input {
         outline: 0;
         background-color: transparent !important;
         background-image: none !important;
@@ -813,16 +592,12 @@
       }
 
       .unified_container
-        .row
-        .panel-default
         #api
         .localAccount
         .entry
         .entry-item
         input::placeholder,
       .unified_container
-        .row
-        .panel-default
         #api
         .localAccount
         .entry
@@ -837,35 +612,14 @@
         text-align: left;
       }
 
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .localAccount
-        .entry
-        .entry-item
-        input:focus {
+      .unified_container #api .localAccount .entry .entry-item input:focus {
         border-style: none;
-        border-bottom: 1px solid var(--homely-sky);
+        border-bottom: 1px solid #000;
       }
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .localAccount
-        .entry
-        .entry-item
-        #password {
+      .unified_container #api .localAccount .entry .entry-item #password {
         margin-bottom: 20px;
       }
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .localAccount
-        .entry
-        .entry-item
-        .password-label {
+      .unified_container #api .localAccount .entry .entry-item .password-label {
         text-align: left;
         height: 0;
         left: 0;
@@ -885,8 +639,6 @@
         animation: 0.5s ease-out 0s 1 slideInFromLeft;
       }
       .unified_container
-        .row
-        .panel-default
         #api
         .localAccount
         .entry
@@ -900,45 +652,29 @@
         cursor: pointer;
         text-align: right;
       }
-      .unified_container .row .panel-default #api .localAccount .rememberMe {
+      .unified_container #api .localAccount .rememberMe {
         position: relative;
         margin-top: -2.25rem;
         text-align: left;
         width: 16rem;
       }
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .localAccount
-        .rememberMe.align-to-left {
+      .unified_container #api .localAccount .rememberMe.align-to-left {
         margin-top: 1rem;
         text-align: left;
       }
       #api .working {
         display: none;
       }
-      .unified_container .row .panel-default #api .localAccount .create p {
+      .unified_container #api .localAccount .create p {
         text-align: right;
         margin-top: 7rem;
         margin-right: -1.5rem;
       }
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .claims-provider-list-text-links
-        p {
+      .unified_container #api .claims-provider-list-text-links p {
         text-align: right;
         margin-top: 7rem;
       }
-      .unified_container
-        .row
-        .panel-default
-        #api
-        .localAccount
-        .create
-        #createAccount {
+      .unified_container #api .localAccount .create #createAccount {
         border-radius: 0.2rem;
         display: inline-block;
         font-size: 1em;
@@ -958,7 +694,7 @@
         margin-top: -3rem;
         cursor: pointer;
       }
-      .unified_container .row .panel-default #api .social {
+      .unified_container #api .social {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -966,11 +702,11 @@
         margin-top: 40px;
       }
 
-      .unified_container .row .panel-default #api .social .options {
+      .unified_container #api .social .options {
         display: flex;
         gap: 16px;
       }
-      .unified_container .row .panel-default #api .accountButton {
+      .unified_container #api .accountButton {
         background-repeat: no-repeat;
         display: block;
         font-size: 0;
@@ -989,97 +725,59 @@
         text-align: right;
       }
       @media (max-width: 100%) {
-        .unified_container .row .panel-default {
+        .unified_container {
           margin-top: auto;
           margin-bottom: auto;
           height: 550px;
         }
-        .unified_container .row .panel-default .panel-body {
+        .unified_container {
           padding: 15px 10px;
           margin-top: 20px;
         }
-        .unified_container .row .panel-default .panel-body .companyName {
+        .unified_container .companyName {
           display: none;
         }
-        .unified_container .row .panel-default .panel-body .companyLogo {
+        .unified_container .companyLogo {
           display: block;
         }
-        .unified_container .row .panel-default .panel-body h3 {
+        .unified_container h3 {
           display: block;
         }
-        .unified_container .row .panel-default .panel-body #api {
+        .unified_container #api {
           width: auto;
         }
-        .unified_container .row .panel-default .panel-body #api .social {
+        .unified_container #api .social {
           top: 370px;
           width: auto;
         }
-        .unified_container
-          .row
-          .panel-default
-          .panel-body
-          #api
-          .social
-          .options
-          .accountButton {
+        .unified_container #api .social .options .accountButton {
           height: 40px;
         }
-        .unified_container
-          .row
-          .panel-default
-          .panel-body
-          #api
-          .social
-          .options
-          #FacebookExchange {
+        .unified_container #api .social .options #FacebookExchange {
           background-size: 12px;
           background-position: 50% 75%;
           margin-bottom: 10px;
         }
-        .unified_container
-          .row
-          .panel-default
-          .panel-body
-          #api
-          .social
-          .options
-          #GoogleExchange {
+        .unified_container #api .social .options #GoogleExchange {
           background-size: 20px;
           background-position: 50% 75%;
           margin-bottom: 10px;
         }
-        .unified_container
-          .row
-          .panel-default
-          .panel-body
-          #api
-          .social
-          .options
-          #TwitterExchange {
+        .unified_container #api .social .options #TwitterExchange {
           background-size: 20px;
           background-position-x: 56px;
           background-position-y: 14px;
           margin-bottom: 10px;
         }
-        .unified_container .row .panel-default .panel-body #api .localAccount {
+        .unified_container #api .localAccount {
           top: 20px;
         }
-        .unified_container
-          .row
-          .panel-default
-          .panel-body
-          #api
-          .localAccount
-          .entry
-          .entry-item {
+        .unified_container #api .localAccount .entry .entry-item {
           display: block;
           width: 100%;
           margin-bottom: 10px;
         }
         .unified_container
-          .row
-          .panel-default
-          .panel-body
           #api
           .localAccount
           .entry
@@ -1088,9 +786,6 @@
           top: 145px;
         }
         .unified_container
-          .row
-          .panel-default
-          .panel-body
           #api
           .localAccount
           .entry
@@ -1098,37 +793,14 @@
           #logonIdentifier {
           height: 40px;
         }
-        .unified_container
-          .row
-          .panel-default
-          .panel-body
-          #api
-          .localAccount
-          .entry
-          .entry-item
-          #password {
+        .unified_container #api .localAccount .entry .entry-item #password {
           height: 40px;
         }
-        .unified_container
-          .row
-          .panel-default
-          .panel-body
-          #api
-          .localAccount
-          .entry
-          .entry-item:nth-child(2) {
+        .unified_container #api .localAccount .entry .entry-item:nth-child(2) {
           width: auto;
           float: left;
         }
-        .unified_container
-          .row
-          .panel-default
-          .panel-body
-          #api
-          .localAccount
-          .entry
-          .buttons
-          #next {
+        .unified_container #api .localAccount .entry .buttons #next {
           width: auto;
           text-indent: -4px;
           height: 40px;
@@ -1140,8 +812,6 @@
       }
       @media screen and (max-width: 320px) {
         .unified_container
-          .row
-          .panel-default
           #api
           .localAccount
           .entry
@@ -1155,7 +825,7 @@
           right: 0;
           bottom: 0;
         }
-        .unified_container .row .panel-default #api .localAccount .rememberMe {
+        .unified_container #api .localAccount .rememberMe {
           width: 50%;
         }
       }
@@ -1185,6 +855,8 @@
         margin: 0;
         padding: 0;
         text-align: center;
+        color:#000;
+
       }
       #api ul li {
         display: block;
@@ -1250,7 +922,7 @@
         display: contents;
       }
 
-      .unified_container .row .panel-default #api .social .intro h2 {
+      .unified_container #api .social .intro h2 {
         display: none;
       }
 
@@ -1264,19 +936,206 @@
         text-align: left;
         margin: 0;
       }
+
+      header {
+        display: flex;
+        padding: 0 22px;
+
+      }
+
+      header .outer-container {
+        background-color: var(--light-sky);
+        background-image: url("https://umesh-moonraft.github.io/images/auth_banner_background.svg");
+        background-size: cover;
+        height: 378px;
+        border-radius: 26px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      header .container {
+        height: 100%;
+        position: relative;
+        background: transparent;
+        background-image: url("https://umesh-moonraft.github.io/images/auth_banner.png");
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+        background-origin: padding-box;
+        padding: 0 24px;
+      }
+
+      header .logo {
+        height: 38px;
+        width: 64px;
+        position: absolute;
+        top: 32px;
+        right: 4px;
+      }
+
+      header .title {
+        font-size: 34px;
+        font-weight: 300;
+        line-height: 34px;
+        letter-spacing: -0.03em;
+        text-align: left;
+        margin-top: 102px;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      main {
+        max-width: 470px;
+        width: 100%;
+        padding: 16px 0;
+        height: 100%;
+
+      }
+
+      .unified_container{
+        padding: 0 24px;
+      }
+
     </style>
   </head>
   <body>
-    <div class="container unified_container" role="presentation">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div id="api" role="main"></div>
+    <main>
+      <header>
+        <div class="outer-container">
+          <div class="container">
+            <img
+              class="logo"
+              src="https://umesh-moonraft.github.io/images/homely_logo.png"
+              alt="homely-logo"
+            />
+            <div class="title">
+              <span>Welcome back</span>
+              <span>into Homely</span>
             </div>
           </div>
         </div>
+      </header>
+      <div class="container unified_container" role="presentation">
+              <div id="api" data-name="Unified" role="main">
+                <div class="heading">
+                  <h1 role="heading">Sign in</h1>
+                </div>
+                <div
+                  class="claims-provider-list-buttons social"
+                  aria-label="Sign in with your social account"
+                  role="form"
+                >
+                  <div class="intro">
+                    <h2>Sign in with your social account</h2>
+                  </div>
+                  <div class="options">
+                    <div>
+                      <button
+                        class="accountButton firstButton claims-provider-selection"
+                        id="GoogleExchange"
+                        role="link"
+                        autofocus=""
+                      >
+                        Google
+                      </button>
+                    </div>
+                    <div>
+                      <button
+                        class="accountButton claims-provider-selection"
+                        id="AppleManagedExchange"
+                        role="link"
+                      >
+                        Apple
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="divider">
+                  <h2>OR</h2>
+                </div>
+                <form
+                  id="localAccountForm"
+                  class="localAccount"
+                  aria-label="Sign in with your email address"
+                >
+                  <div class="intro">
+                    <h2>Sign in with your email address</h2>
+                  </div>
+                  <div class="error pageLevel" aria-hidden="true" role="alert">
+                    <p></p>
+                  </div>
+                  <div class="entry">
+                    <div class="entry-item">
+                      <label for="email"> Email Address </label>
+                      <div
+                        class="error itemLevel"
+                        aria-hidden="true"
+                        role="alert"
+                      >
+                        <p></p>
+                      </div>
+                      <input
+                        type="email"
+                        id="email"
+                        name="Email Address"
+                        title="Please enter a valid email address"
+                        pattern="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$"
+                        autofocus=""
+                        placeholder="Email Address"
+                        aria-label="Email Address"
+                      />
+                    </div>
+                    <div class="entry-item">
+                      <div class="password-label">
+                        <label for="password">Password</label>
+                        <a
+                          id="forgotPassword"
+                          href="/homelyukb2c.onmicrosoft.com/B2C_1_homely-signin/api/CombinedSigninAndSignup/forgotPassword?csrf_token=VnJkWmxwN01PSWpNZFAxK3pBQW10MmRuVW9JSDJ3eDJOZ0tCc0JLS2JvL3J6b2FlZjNHdkJCVkp3S1FFR2Z2aks5NWZESGtHVmU1azM4QjV1U1VRbFE9PTsyMDI0LTAyLTE0VDEyOjExOjQwLjQwMjU4MzlaO29mTkU3TmQzVVJ0VzlHMlJybmFHRFE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiIzYjYzZDJjMC1lYmExLTRlODgtYjk3ZS04OTQ2OGVlMzQ2ZTAifQ&amp;p=B2C_1_homely-signin"
+                          >Forgot your password?</a
+                        >
+                      </div>
+                      <div class="error itemLevel" aria-hidden="true">
+                        <p role="alert"></p>
+                      </div>
+                      <input
+                        type="password"
+                        id="password"
+                        name="Password"
+                        placeholder="Password"
+                        aria-label="Password"
+                        autocomplete="current-password"
+                        aria-required="true"
+                      />
+                    </div>
+                    <div class="working"></div>
+
+                    <div class="buttons">
+                      <button id="next" type="submit" form="localAccountForm">
+                        Sign in
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
       </div>
-    </div>
+
+      <!-- <div class="container unified_container" role="presentation">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div id="api" role="main"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </main>
   </body>
 </html>
