@@ -13,14 +13,16 @@
     />
     <style id="common">
       @font-face {
-        font-family: "SegoeUI";
-        src: url(https://homelyukb2c.b2clogin.com/static/tenant/templates/fonts/segoeui.WOFF);
+        font-family: "Munidal";
+        src: url("../fonts/Mundial-Regular.otf") format("opentype");
         font-weight: normal;
+        font-style: normal;
       }
       @font-face {
-        font-family: "SegoeUI";
-        src: url(https://homelyukb2c.b2clogin.com/static/tenant/templates/fonts/segoeui_bold.WOFF);
+        font-family: "Munidal";
+        src: url("../fonts/Mundial-Bold.otf") format("opentype");
         font-weight: bold;
+        font-style: normal;
       }
       #AmazonExchange {
         background-image: url(https://homelyukb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/amazon.svg);
@@ -118,13 +120,52 @@
     <style>
       /* Following are generated styles via gulp. */
       /* inject: css */
+      @font-face {
+        font-family: "Mundial";
+        font-style: normal;
+        font-weight: normal;
+        font-display: swap;
+        src: url("./fonts/Mundial-Regular.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Mundial";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url("./fonts/Mundial-Light.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Mundial";
+        font-style: normal;
+        font-weight: 100;
+        font-display: swap;
+        src: url("./fonts/Mundial-Thin.otf") format("opentype");
+      }
+      @font-face {
+        font-family: "Mundial";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("./fonts/Mundial-SemiBold.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Mundial";
+        src: url("./fonts/Mundial-Bold.otf") format("opentype");
+        font-weight: bold;
+        font-style: normal;
+      }
       html {
         background: 0 0;
         --homely-sky: #00a3ff;
+        --secondary-text: #3f3f3f;
+        --grey: #d6d6d6;
       }
+
       body {
-        font-family: Segoe UI, SegoeUI, "Helvetica Neue", Helvetica, Arial,
-          sans-serif;
+        font-family: "Mundial", sans-serif;
         background-attachment: fixed;
         background-color: #fff;
         background-position: center;
@@ -184,6 +225,7 @@
         display: inline-block;
         vertical-align: top;
         padding: 0;
+        height: 100%;
       }
       .row {
         width: 100%;
@@ -606,6 +648,7 @@
         width: auto;
         margin: 0 auto;
         padding: 0;
+        height: 100%;
       }
       .unified_container .row .panel-default .panel-body .companyName {
         font-size: 1.5em;
@@ -631,13 +674,14 @@
         flex-direction: column;
         margin: 0;
         width: 100%;
+        height: 100%;
       }
       .unified_container .row .panel-default #api .intro {
         display: block;
         text-align: left;
       }
       .unified_container .row .panel-default #api .intro h2 {
-        color: #3f3f3f;
+        color: var(--secondary-text);
         font-size: 20px;
         font-weight: 300;
         line-height: 24px;
@@ -691,7 +735,7 @@
         line-height: 18px;
         letter-spacing: -0.03em;
         text-align: center;
-        margin: 0;
+        margin-top: 40px;
         width: 100%;
       }
       .forgot-password {
@@ -752,22 +796,54 @@
         .entry-item
         input {
         outline: 0;
-        background-color: #fff !important;
+        background-color: transparent !important;
         background-image: none !important;
         border-style: none;
-        border-bottom: 1px solid #d6d6d6;
-        color: #555;
+        border-bottom: 1px solid var(--grey);
+        color: var(--secondary-text);
         display: inline-block;
-        font-size: 1em;
-        height: 30px;
-        line-height: 1.42857143;
-        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s !important;
+        /* transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s !important; */
         width: 100% !important;
-        -o-transition: border-color ease-in-out 0.15s,
-          box-shadow ease-in-out 0.15s !important;
-        -webkit-transition: border-color ease-in-out 0.15s,
-          -webkit-box-shadow ease-in-out 0.15s !important;
+        /* -o-transition: border-color ease-in-out 0.15s, */
+        /* box-shadow ease-in-out 0.15s !important; */
+        /* -webkit-transition: border-color ease-in-out 0.15s, */
+        /* -webkit-box-shadow ease-in-out 0.15s !important; */
+
+        font-family: Mundial;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+        text-align: left;
+        padding-block: 6px;
+        padding-inline: 4px;
       }
+
+      .unified_container
+        .row
+        .panel-default
+        #api
+        .localAccount
+        .entry
+        .entry-item
+        input::placeholder,
+      .unified_container
+        .row
+        .panel-default
+        #api
+        .localAccount
+        .entry
+        .entry-item
+        input::-webkit-input-placeholder {
+        color: var(--grey);
+        font-family: Mundial;
+        font-size: 20px;
+        font-weight: 100;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+        text-align: left;
+      }
+
       .unified_container
         .row
         .panel-default
@@ -777,7 +853,7 @@
         .entry-item
         input:focus {
         border-style: none;
-        border-bottom: 1px solid #1662c7;
+        border-bottom: 1px solid var(--homely-sky);
       }
       .unified_container
         .row
@@ -1176,13 +1252,24 @@
         order: 2;
       }
 
-      #api .buttons button {
-        margin-top: 40px;
-      }
-
       .entry,
       .localAccount {
         display: contents;
+      }
+
+      .unified_container .row .panel-default #api .social .intro h2 {
+        display: none;
+      }
+
+      #api .social .intro::before {
+        content: "Or Log in with";
+        color: var(--secondary-text);
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+        text-align: left;
+        margin: 0;
       }
     </style>
   </head>
