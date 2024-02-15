@@ -1,0 +1,48 @@
+header .logo {
+  height: 38px;
+  width: 64px;
+  position: absolute;
+  top: 32px;
+  right: 4px;
+}
+
+header .title {
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 34px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  margin-top: 102px;
+}
+
+header {
+  display: flex;
+  padding: 0 22px;
+}
+
+header .outer-container {
+  background-color: var(--light-sky);
+  background-image: url("https://umesh-moonraft.github.io/images/auth_banner_background.svg");
+  background-size: cover;
+  height: 378px;
+  border-radius: 26px;
+  width: 100%;
+  overflow: hidden;
+}
+
+header .container {
+  height: 100%;
+  position: relative;
+  background: transparent;
+  background-image: url("https://umesh-moonraft.github.io/images/auth_banner.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  background-origin: padding-box;
+  padding: 0 24px;
+  justify-content: flex-start;
+}
+
+header .title span {
+  display: block;
+}

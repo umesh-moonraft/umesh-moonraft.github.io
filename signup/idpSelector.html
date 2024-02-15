@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Choose your account</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/styles/common.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/signup.css" />
+
+    <style id="common">
+      #FacebookExchange {
+        background-image: url(https://homelyukb2c.b2clogin.com/static/tenant/templates/idp_logos/white/facebook.svg);
+      }
+
+      #GitHubExchange {
+        background-image: url(https://homelyukb2c.b2clogin.com/static/tenant/templates/idp_logos/white/github.svg);
+      }
+
+      #AppleExchange,
+      #AppleManagedExchange {
+        background-image: url(/images/apple_white.svg);
+      }
+
+      #GoogleExchange {
+        background-image: url(/images/google_white.svg);
+      }
+    </style>
+
+    <style>
+      .unified_container #api {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .unified_container #api .intro {
+        display: none;
+      }
+
+      .unified_container #api .divider {
+        display: none;
+      }
+      .unified_container #api .localAccount {
+        position: relative;
+        width: 100%;
+      }
+      .unified_container #api .localAccount .intro h2 {
+        font-size: 20px;
+        display: none;
+      }
+      .unified_container #api .localAccount .error {
+        color: #b00;
+        text-align: left;
+      }
+
+      .unified_container #api .localAccount .entry .buttons button {
+        background-color: var(--homely-sky);
+        border: none;
+        cursor: pointer;
+        padding: 10px 16px;
+        touch-action: manipulation;
+        user-select: none;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: inherit;
+        -moz-user-select: none;
+        -ms-touch-action: manipulation;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        color: #000;
+        max-width: 345px;
+        height: 64px;
+        border-radius: 32px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: -0.03em;
+        text-align: center;
+        margin-top: 40px;
+        width: 100%;
+      }
+      .forgot-password {
+        text-align: left;
+      }
+      .forgot-password.center-height {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        clear: right;
+        cursor: pointer;
+        text-align: right;
+      }
+
+      .unified_container #api .localAccount .entry .entry-item {
+        position: relative;
+        width: 100%;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        display: block;
+      }
+      .unified_container #api .localAccount .entry .entry-item label {
+        display: none;
+      }
+      .unified_container #api .localAccount .entry .entry-item input {
+        outline: 0;
+        background-color: transparent !important;
+        background-image: none !important;
+        border-style: none;
+        border-bottom: 1px solid var(--grey);
+        color: var(--secondary-text);
+        display: inline-block;
+        /* transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s !important; */
+        width: 100% !important;
+        /* -o-transition: border-color ease-in-out 0.15s, */
+        /* box-shadow ease-in-out 0.15s !important; */
+        /* -webkit-transition: border-color ease-in-out 0.15s, */
+        /* -webkit-box-shadow ease-in-out 0.15s !important; */
+
+        font-family: Mundial;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+        text-align: left;
+        padding-block: 6px;
+        padding-inline: 4px;
+      }
+
+      .unified_container
+        #api
+        .localAccount
+        .entry
+        .entry-item
+        input::placeholder,
+      .unified_container
+        #api
+        .localAccount
+        .entry
+        .entry-item
+        input::-webkit-input-placeholder {
+        color: var(--grey);
+        font-family: Mundial;
+        font-size: 20px;
+        font-weight: 100;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+        text-align: left;
+      }
+
+      .unified_container #api .localAccount .entry .entry-item #password {
+        margin-bottom: 20px;
+      }
+      .unified_container #api .localAccount .entry .entry-item .password-label {
+        text-align: left;
+        height: 0;
+        left: 0;
+        width: 100%;
+      }
+      @keyframes slideInFromLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-30%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .create {
+        animation: 0.5s ease-out 0s 1 slideInFromLeft;
+      }
+      .unified_container
+        #api
+        .localAccount
+        .entry
+        .entry-item
+        .password-label
+        #forgotPassword {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        clear: right;
+        cursor: pointer;
+        text-align: right;
+      }
+      .unified_container #api .localAccount .rememberMe {
+        position: relative;
+        margin-top: -2.25rem;
+        text-align: left;
+        width: 16rem;
+      }
+      .unified_container #api .localAccount .rememberMe.align-to-left {
+        margin-top: 1rem;
+        text-align: left;
+      }
+      #api .working {
+        display: none;
+      }
+      .unified_container #api .localAccount .create p {
+        text-align: right;
+        margin-top: 7rem;
+        margin-right: -1.5rem;
+      }
+      .unified_container #api .claims-provider-list-text-links p {
+        text-align: right;
+        margin-top: 7rem;
+      }
+      .unified_container #api .localAccount .create #createAccount {
+        border-radius: 0.2rem;
+        display: inline-block;
+        font-size: 1em;
+        font-weight: 400;
+        height: inherit;
+        line-height: 1.3333333;
+        padding: 10px 16px;
+        text-align: center;
+        touch-action: manipulation;
+        user-select: none;
+        white-space: nowrap;
+        -moz-user-select: none;
+        -ms-touch-action: manipulation;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        width: auto;
+        margin-top: -3rem;
+        cursor: pointer;
+      }
+      .unified_container #api .social {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        order: 1;
+        margin-top: 40px;
+      }
+
+      .unified_container #api .social .options {
+        display: flex;
+        gap: 16px;
+      }
+      .unified_container #api .accountButton {
+        position: relative;
+        display: block;
+        height: 64px;
+        overflow: hidden;
+        background-origin: content-box;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0px;
+        background-size: 10% 70%;
+        background-position-x: 14px;
+        background-position-y: 50%;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        border: 1px solid #00a3ff;
+        border-radius: 32px;
+      }
+
+      .claims-provider-list-text-links-bottom-under-form {
+        text-align: right;
+      }
+      @media (max-width: 100%) {
+        .unified_container {
+          margin-top: auto;
+          margin-bottom: auto;
+          height: 550px;
+        }
+        .unified_container {
+          padding: 15px 10px;
+          margin-top: 20px;
+        }
+        .unified_container .companyName {
+          display: none;
+        }
+        .unified_container .companyLogo {
+          display: block;
+        }
+        .unified_container h3 {
+          display: block;
+        }
+        .unified_container #api {
+          width: auto;
+        }
+        .unified_container #api .social {
+          top: 370px;
+          width: auto;
+        }
+        .unified_container #api .social .options .accountButton {
+          height: 40px;
+        }
+        .unified_container #api .social .options #FacebookExchange {
+          background-size: 12px;
+          background-position: 50% 75%;
+          margin-bottom: 10px;
+        }
+        .unified_container #api .social .options #GoogleExchange {
+          background-size: 20px;
+          background-position: 50% 75%;
+          margin-bottom: 10px;
+        }
+        .unified_container #api .social .options #TwitterExchange {
+          background-size: 20px;
+          background-position-x: 56px;
+          background-position-y: 14px;
+          margin-bottom: 10px;
+        }
+        .unified_container #api .localAccount {
+          top: 20px;
+        }
+        .unified_container #api .localAccount .entry .entry-item {
+          display: block;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        .unified_container
+          #api
+          .localAccount
+          .entry
+          .entry-item
+          .password-label {
+          top: 145px;
+        }
+        .unified_container
+          #api
+          .localAccount
+          .entry
+          .entry-item
+          #logonIdentifier {
+          height: 40px;
+        }
+        .unified_container #api .localAccount .entry .entry-item #password {
+          height: 40px;
+        }
+        .unified_container #api .localAccount .entry .entry-item:nth-child(2) {
+          width: auto;
+          float: left;
+        }
+        .unified_container #api .localAccount .entry .buttons #next {
+          width: auto;
+          text-indent: -4px;
+          height: 40px;
+          line-height: 0;
+          position: relative;
+          bottom: 5px;
+          left: 8px;
+        }
+      }
+      @media screen and (max-width: 320px) {
+        .unified_container
+          #api
+          .localAccount
+          .entry
+          .entry-item
+          .password-label
+          #forgotPassword {
+          right: 0;
+          bottom: 0;
+        }
+        .forgot-password.center-height {
+          right: 0;
+          bottom: 0;
+        }
+        .unified_container #api .localAccount .rememberMe {
+          width: 50%;
+        }
+      }
+      #simplemodal-overlay {
+        background: #000;
+      }
+      #simplemodal-container {
+        background: #fff;
+        padding: 30px 20px 20px;
+        text-align: left;
+        -webkit-box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      }
+      #simplemodal-container h2 {
+        /* font-family: Arial, Helvetica, sans-serif; */
+        color: #1c5b96;
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 10px;
+      }
+      #simplemodal-container h1 {
+        margin-bottom: 20px;
+      }
+
+      #api ul li {
+        display: block;
+        list-style-type: none;
+      }
+
+      #api .intro p {
+        text-align: left;
+        font-size: 1.5em;
+        margin: auto;
+        margin-top: 1.5rem;
+      }
+      table {
+        width: 40%;
+        margin: auto;
+      }
+      .alert-modal {
+        display: none;
+      }
+      button.accountButton {
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 1.1px;
+        width: 100%;
+        cursor: pointer;
+      }
+      #SignInWithLogonNameExchange {
+        background-color: #fff;
+        background-size: 10%;
+        background-position-x: 2%;
+        background-position-y: 50%;
+        color: #296ec6;
+        border-color: #296ec6;
+        border-width: thin;
+        border-style: solid;
+        background-repeat: no-repeat;
+        border-radius: 0.2rem;
+        width: 100%;
+        font-size: 1em;
+        margin-left: auto;
+        margin-bottom: 0;
+      }
+
+      #api .heading {
+        display: none !important;
+      }
+
+      #api .buttons {
+        margin-top: auto;
+        display: flex;
+        justify-content: center;
+        order: 2;
+      }
+
+      .entry,
+      .localAccount {
+        display: contents;
+      }
+
+      .unified_container #api .social .intro h2 {
+        display: none;
+      }
+
+      #api .social .intro::before {
+        content: "Or Log in with";
+        color: var(--secondary-text);
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+        text-align: left;
+        margin: 0;
+      }
+
+      #api ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 0;
+        margin-top: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="outer-container">
+          <div class="container">
+            <img
+              class="logo"
+              src="https://umesh-moonraft.github.io/images/homely_logo.png"
+              alt="homely-logo"
+            />
+            <div class="title">
+              <span>Sign Up with</span>
+              <span>Homely</span>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="container unified_container" role="presentation">
+        <div id="api" data-name="IdpSelections" role="main">
+          <div class="heading">
+            <h1 role="heading">Sign in</h1>
+          </div>
+          <div class="intro">
+            <p>Sign up</p>
+          </div>
+          <div role="form">
+            <ul>
+              <li>
+                <button
+                  class="accountButton"
+                  id="GoogleExchange"
+                  aria-label="Google"
+                >
+                  Google
+                </button>
+              </li>
+              <li>
+                <button
+                  class="accountButton"
+                  id="AppleManagedExchange"
+                  aria-label="Apple"
+                >
+                  Apple
+                </button>
+              </li>
+              <li>
+                <button
+                  class="accountButton"
+                  id="SignUpWithLogonEmailExchange"
+                  aria-label="Email signup"
+                >
+                  Email signup
+                </button>
+              </li>
+            </ul>
+            <div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
