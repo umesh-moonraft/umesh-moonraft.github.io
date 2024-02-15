@@ -85,6 +85,7 @@ main {
 
 a,
 a:focus {
+  text-decoration: none;
   outline: none;
   font-size: 14px;
   font-weight: 300;
