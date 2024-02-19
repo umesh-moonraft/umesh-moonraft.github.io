@@ -41,8 +41,19 @@ header .container {
   background-origin: padding-box;
   padding: 0 24px;
   justify-content: flex-start;
+  flex-direction: column;
 }
 
-header .title span {
+header span {
   display: block;
+}
+
+header .subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: #3f3f3f;
+  margin-top: 16px;
 }

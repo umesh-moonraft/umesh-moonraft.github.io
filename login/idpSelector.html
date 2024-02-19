@@ -7,29 +7,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
+    <!-- <link
+      rel="preload"
+      href="https://umesh-moonraft.github.io/styles/common.css"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="https://umesh-moonraft.github.io/styles/header.css"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="https://umesh-moonraft.github.io/styles/login.css"
+      as="style"
+    /> -->
 
-    <link rel="stylesheet" href="https://umesh-moonraft.github.io/styles/common.css">
-    <link rel="stylesheet" href="https://umesh-moonraft.github.io/styles/header.css">
-    <link rel="stylesheet" href="https://umesh-moonraft.github.io/styles/login.css">
+     <link
+      rel="stylesheet"
+      href="/styles/common.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/styles/header.css"
+    />
+  
+
 
    
     <style id="common">
-      #AmazonExchange {
-        background-image: url(https://homelyukb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/amazon.svg);
-      }
+      
       
       #FacebookExchange {
-        background-image: url(https://homelyukb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/facebook.svg);
+        background-image: url(/images/facebook.svg);
       }
      
      
       #AppleExchange,
       #AppleManagedExchange {
-        background-image: url(https://homelyukb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/apple.svg);
+        background-image: url(/images/apple.svg);
       }
      
       #GoogleExchange {
-        background-image: url(https://homelyukb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/google.svg);
+        background-image: url(/images/google.svg);
       }
     
      
@@ -129,59 +149,7 @@
       .unified_container #api .localAccount .entry .entry-item label {
         display: none;
       }
-      .unified_container #api .localAccount .entry .entry-item input {
-        outline: 0;
-        background-color: transparent !important;
-        background-image: none !important;
-        border-style: none;
-        border-bottom: 1px solid var(--grey);
-        color: var(--secondary-text);
-        display: inline-block;
-        /* transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s !important; */
-        width: 100% !important;
-        /* -o-transition: border-color ease-in-out 0.15s, */
-        /* box-shadow ease-in-out 0.15s !important; */
-        /* -webkit-transition: border-color ease-in-out 0.15s, */
-        /* -webkit-box-shadow ease-in-out 0.15s !important; */
-
-        font-family: Mundial;
-        font-size: 20px;
-        font-weight: 300;
-        line-height: 24px;
-        letter-spacing: -0.03em;
-        text-align: left;
-        padding-block: 6px;
-        padding-inline: 4px;
-      }
-
-      .unified_container
-        #api
-        .localAccount
-        .entry
-        .entry-item
-        input::placeholder,
-      .unified_container
-        #api
-        .localAccount
-        .entry
-        .entry-item
-        input::-webkit-input-placeholder {
-        color: var(--grey);
-        font-family: Mundial;
-        font-size: 20px;
-        font-weight: 100;
-        line-height: 24px;
-        letter-spacing: -0.03em;
-        text-align: left;
-      }
-
-      .unified_container #api .localAccount .entry .entry-item input:focus {
-        border-style: none;
-        border-bottom: 1px solid #000;
-        -moz-box-shadow: none;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-      }
+     
       .unified_container #api .localAccount .entry .entry-item #password {
         margin-bottom: 20px;
       }
