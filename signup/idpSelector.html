@@ -499,11 +499,13 @@
     </style>
 
     <script defer>
-      document.getElementById("GoogleExchange").innerText = "Using Google";
-      document.getElementById("AppleManagedExchange").innerText =
-        "Using Apple ID";
-      document.getElementById("SignUpWithLogonEmailExchange").innerText =
-        "Email sign up";
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("GoogleExchange").innerText = "Using Google";
+        document.getElementById("AppleManagedExchange").innerText =
+          "Using Apple ID";
+        document.getElementById("SignUpWithLogonEmailExchange").innerText =
+          "Email sign up";
+      });
     </script>
   </head>
   <body>
