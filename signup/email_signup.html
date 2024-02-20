@@ -197,9 +197,7 @@
         margin-top: 1rem;
         text-align: left;
       }
-      #api .working {
-        display: none;
-      }
+
       .unified_container #api .localAccount .create p {
         text-align: right;
         margin-top: 7rem;
@@ -473,6 +471,8 @@
 
       .emailVerificationControl_li .buttons {
         margin-top: 32px;
+        display: flex;
+        gap: 16px;
       }
 
       #attributeVerification {
@@ -481,6 +481,20 @@
 
       .newPassword_li {
         margin-bottom: 16px;
+      }
+
+      .verificationSuccessText,
+      .verificationInfoText {
+        margin-bottom: 8px !important;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 20px;
+        letter-spacing: -0.04em;
+        text-align: left;
+      }
+
+      .emailVerificationCode_li .attrEntry {
+        margin-top: 16px;
       }
     </style>
   </head>
@@ -506,11 +520,7 @@
           <div class="heading">
             <h1 role="heading">User Details</h1>
           </div>
-          <div class="buttons">
-            <button id="cancel" aria-label="Cancel" formnovalidate="">
-              Cancel
-            </button>
-          </div>
+          <div class="buttons"></div>
           <div class="intro">
             <p>Please provide the following details.</p>
           </div>
@@ -561,7 +571,10 @@
                       class="verificationControlContent"
                       id="emailVerificationControl"
                     >
-                      <div class="verificationInfoText">
+                      <div
+                        class="verificationInfoText"
+                        style="margin-bottom: 5px"
+                      >
                         <div
                           id="emailVerificationControl_info_message"
                           aria-hidden="true"
@@ -572,14 +585,20 @@
                           Verification is necessary. Please click Send button.
                         </div>
                       </div>
-                      <div class="verificationSuccessText">
+                      <div
+                        class="verificationSuccessText"
+                        style="margin-bottom: 5px"
+                      >
                         <div
                           id="emailVerificationControl_success_message"
-                          aria-hidden="true"
+                          aria-hidden="false"
                           role="alert"
-                          aria-label=""
-                          style="display: none"
-                        ></div>
+                          aria-label="Verification code has been sent to your inbox. Please copy it to the input box below."
+                          style="display: inline"
+                        >
+                          Verification code has been sent to your inbox. Please
+                          copy it to the input box below.
+                        </div>
                       </div>
                       <div class="verificationErrorText error">
                         <div
@@ -597,19 +616,25 @@
                           style="display: inline"
                         >
                           <div class="attrEntry">
-                            <div class="error itemLevel" role="alert"></div>
+                            <label id="email_label" for="email" class="required"
+                              >Email Address</label
+                            >
+                            <div
+                              class="error itemLevel"
+                              role="alert"
+                              aria-hidden="true"
+                              aria-label=""
+                            ></div>
                             <input
                               id="email"
                               class="textInput"
                               type="email"
                               placeholder="Email Address"
-                              aria-label="Email Address"
                               pattern="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$"
                               title="Email address that can be used to contact you."
                               aria-required="true"
                               autofocus="autofocus"
-                            /><span class="required">*</span
-                            ><a
+                            /><a
                               class="helpLink tiny"
                               href="javascript:void(0)"
                               data-help="Email address that can be used to contact you."
@@ -619,23 +644,31 @@
                         </li>
                         <li
                           class="TextBox emailVerificationCode_li VerificationCode"
-                          aria-hidden="true"
-                          style="display: none"
+                          aria-hidden="false"
+                          style="display: inline"
                         >
                           <div class="attrEntry">
-                            <div class="error itemLevel" role="alert"></div>
+                            <label
+                              id="emailVerificationCode_label"
+                              for="emailVerificationCode"
+                              class="required"
+                              >Verification Code</label
+                            >
+                            <div
+                              class="error itemLevel"
+                              role="alert"
+                              aria-hidden="true"
+                              aria-label=""
+                            ></div>
                             <input
                               id="emailVerificationCode"
                               class="textInput"
                               type="text"
                               placeholder="Verification Code"
-                              aria-label="Verification Code"
                               title="Enter your verification code"
                               aria-required="true"
                               autocomplete="off"
-                              disabled=""
-                            /><span class="required">*</span
-                            ><a
+                            /><a
                               class="helpLink tiny"
                               href="javascript:void(0)"
                               data-help="Enter your verification code"
@@ -648,6 +681,9 @@
                         class="working"
                         style="display: none"
                         aria-hidden="true"
+                        aria-label="Please wait"
+                        aria-live="assertive"
+                        role="alert"
                       ></div>
                       <div class="buttons">
                         <button
@@ -655,8 +691,8 @@
                           id="emailVerificationControl_but_send_code"
                           type="button"
                           aria-label="Send verification code"
-                          aria-hidden="false"
-                          style="display: inline"
+                          aria-hidden="true"
+                          style="display: none"
                         >
                           Send verification code</button
                         ><button
@@ -664,8 +700,8 @@
                           id="emailVerificationControl_but_verify_code"
                           type="button"
                           aria-label="Verify code"
-                          aria-hidden="true"
-                          style="display: none"
+                          aria-hidden="false"
+                          style="display: inline"
                         >
                           Verify code</button
                         ><button
@@ -673,8 +709,8 @@
                           id="emailVerificationControl_but_send_new_code"
                           type="button"
                           aria-label="Send new code"
-                          aria-hidden="true"
-                          style="display: none"
+                          aria-hidden="false"
+                          style="display: inline"
                         >
                           Send new code</button
                         ><button
@@ -696,21 +732,25 @@
                 </li>
                 <li class="Password newPassword_li">
                   <div class="attrEntry">
+                    <label
+                      id="newPassword_label"
+                      for="newPassword"
+                      class="required"
+                      >New Password</label
+                    >
                     <div class="error itemLevel" role="alert"></div>
                     <input
                       id="newPassword"
                       class="textInput"
                       type="password"
                       placeholder="New Password"
-                      aria-label="New Password"
                       title="Enter new password"
                       autocomplete="new-password"
                       aria-required="true"
                       aria-disabled="true"
                       disabled="disabled"
                       tabindex="-1"
-                    /><span class="required">*</span
-                    ><a
+                    /><a
                       class="helpLink tiny"
                       href="javascript:void(0)"
                       data-help="Enter new password"
@@ -720,21 +760,25 @@
                 </li>
                 <li class="Password reenterPassword_li">
                   <div class="attrEntry">
+                    <label
+                      id="reenterPassword_label"
+                      for="reenterPassword"
+                      class="required"
+                      >Confirm New Password</label
+                    >
                     <div class="error itemLevel" role="alert"></div>
                     <input
                       id="reenterPassword"
                       class="textInput"
                       type="password"
                       placeholder="Confirm New Password"
-                      aria-label="Confirm New Password"
                       title="Confirm new password"
                       autocomplete="new-password"
                       aria-required="true"
                       aria-disabled="true"
                       disabled="disabled"
                       tabindex="-1"
-                    /><span class="required">*</span
-                    ><a
+                    /><a
                       class="helpLink tiny"
                       href="javascript:void(0)"
                       data-help="Confirm new password"
@@ -753,7 +797,9 @@
                 aria-label="Create"
                 tabindex="-1"
               >
-                Create
+                Create</button
+              ><button id="cancel" aria-label="Cancel" formnovalidate="">
+                Cancel
               </button>
             </div>
 
