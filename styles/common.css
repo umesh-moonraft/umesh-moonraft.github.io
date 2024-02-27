@@ -302,7 +302,7 @@ ul {
 
   width: auto;
   height: 64px;
-  background: url(/images/Spinner.svg) no-repeat;
+  background: url(https://umesh-moonraft.github.io/images/Spinner.svg) no-repeat;
   background-size: 64px;
   animation: spin 4s linear infinite;
   background-position: center bottom;
