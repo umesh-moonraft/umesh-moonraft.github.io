@@ -366,6 +366,10 @@ ul {
   display: none;
 }
 
+input[type="password"] {
+  appearance: none;
+}
+
 input {
   outline: 0;
   background-color: transparent !important;
