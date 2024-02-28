@@ -374,12 +374,9 @@ input {
   border-bottom: 1px solid var(--grey);
   color: var(--secondary-text);
   display: inline-block;
-  /* transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s !important; */
+
   width: 100% !important;
-  /* -o-transition: border-color ease-in-out 0.15s, */
-  /* box-shadow ease-in-out 0.15s !important; */
-  /* -webkit-transition: border-color ease-in-out 0.15s, */
-  /* -webkit-box-shadow ease-in-out 0.15s !important; */
+  border-radius: 0;
 
   font-family: Mundial;
   font-size: 20px;
@@ -405,9 +402,6 @@ input::-webkit-input-placeholder {
 input:focus {
   border-style: none;
   border-bottom: 1px solid #000;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 
 span.required {
