@@ -35,7 +35,7 @@ header .container {
   height: 100%;
   position: relative;
   background: transparent;
-  background-image: url("/images/auth_banner.png");
+  background-image: url("https://umesh-moonraft.github.io/images/auth_banner.png");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;

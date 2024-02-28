@@ -41,6 +41,10 @@
   font-style: normal;
 }
 
+* {
+  font-family: "Mundial", sans-serif;
+}
+
 html {
   --homely-sky: #00a3ff;
   --secondary-text: #3f3f3f;
@@ -49,7 +53,6 @@ html {
 }
 
 body {
-  font-family: "Mundial", sans-serif;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
