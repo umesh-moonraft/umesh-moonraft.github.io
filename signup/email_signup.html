@@ -46,10 +46,6 @@
         font-size: 20px;
         display: none;
       }
-      .unified_container #api .localAccount .error {
-        color: #b00;
-        text-align: left;
-      }
 
       .unified_container #api .localAccount .entry .buttons button {
         /* background-color: var(--homely-sky); */
@@ -457,38 +453,29 @@
       }
 
       #continue {
-        margin-top: 32px;
+        margin-top: 16px;
       }
       .emailVerificationControl_li {
         margin-bottom: 40px;
       }
 
       .emailVerificationControl_li .buttons {
-        margin-top: 32px;
+        margin-top: 16px;
         display: flex;
-        gap: 16px;
-      }
-
-      #attributeVerification {
-        margin-top: 40px;
-      }
-
-      .newPassword_li {
-        margin-bottom: 16px;
+        flex-direction: column;
+        align-items: center;
       }
 
       .verificationSuccessText,
       .verificationInfoText {
-        margin-bottom: 8px !important;
-        font-size: 16px;
+        margin-bottom: 16px !important;
+        font-family: Mundial;
+        font-size: 18px;
         font-weight: 300;
         line-height: 20px;
         letter-spacing: -0.04em;
         text-align: left;
-      }
-
-      .emailVerificationCode_li .attrEntry {
-        margin-top: 16px;
+        color: var(--secondary-text);
       }
 
       header .outer-container {
@@ -497,6 +484,46 @@
 
       header .container {
         background-image: url("/images/auth_banner_email_signup.png");
+      }
+
+      .buttons button.sendNewCode {
+        all: unset;
+        margin-top: 24px;
+        font-family: Mundial;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 20px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        color: #000000;
+        cursor: pointer;
+      }
+
+      .buttons button.sendNewCode::after {
+        content: "";
+        width: 24px;
+        height: 24px;
+        background: url(/images/chevron_right.svg) no-repeat;
+        background-size: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 8px;
+      }
+
+      #attributeList .Password .attrEntry,
+      #attributeList .EmailBox .attrEntry,
+      #attributeList .TextBox .attrEntry {
+        display: flex;
+        flex-direction: column;
+        height: 67px;
+      }
+
+      .attrEntry .error {
+        order: 1;
+      }
+
+      main {
+        gap: 32px;
       }
     </style>
   </head>
