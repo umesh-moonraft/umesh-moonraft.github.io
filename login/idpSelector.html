@@ -91,14 +91,12 @@
       .unified_container #api .localAccount .error {
         color: #EC0000;
         text-align: left;
-        order:1;
         font-family: Mundial;
         font-size: 14px;
         font-weight: 100;
         line-height: 20px;
         letter-spacing: 0px;
         text-align: left;
-        height: 24px;
 
       }
 
@@ -154,6 +152,11 @@
         flex-direction: column;
         height: 67px;
       }
+
+       .unified_container #api .localAccount .entry .entry-item .error{
+          order:1;
+       }
+      
       .unified_container #api .localAccount .entry .entry-item label {
         display: none;
       }
@@ -465,6 +468,9 @@
         display: none;
       }
 
+      main{
+        gap:24px;
+      }
       
 
     </style>
@@ -536,7 +542,7 @@
                     <h2>Sign in with your email address</h2>
                   </div>
                   <div class="error pageLevel" aria-hidden="true" role="alert">
-                    <p></p>
+                    <p>Erroro</p>
                   </div>
                   <div class="entry">
                     <div class="entry-item">
