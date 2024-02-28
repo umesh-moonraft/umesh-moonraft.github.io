@@ -384,8 +384,12 @@ input {
   line-height: 24px;
   letter-spacing: -0.03em;
   text-align: left;
-  padding-block: 6px;
-  padding-inline: 4px;
+  padding-block: 10px;
+  padding-inline: 6px;
+}
+
+input.highlightError {
+  border-color: #ec0000;
 }
 
 input::placeholder,

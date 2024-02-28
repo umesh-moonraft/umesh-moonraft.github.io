@@ -31,6 +31,10 @@
 
    
     <style id="common">
+
+      p{
+        margin:0;
+      }
       
       
       #FacebookExchange {
@@ -85,8 +89,17 @@
         display: none;
       }
       .unified_container #api .localAccount .error {
-        color: #b00;
+        color: #EC0000;
         text-align: left;
+        order:1;
+        font-family: Mundial;
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 20px;
+        letter-spacing: 0px;
+        text-align: left;
+        height: 24px;
+
       }
 
       .unified_container #api .localAccount .entry .buttons button {
@@ -137,22 +150,22 @@
       .unified_container #api .localAccount .entry .entry-item {
         position: relative;
         width: 100%;
-        padding-top: 6px;
-        padding-bottom: 6px;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        height: 67px;
       }
       .unified_container #api .localAccount .entry .entry-item label {
         display: none;
       }
      
       .unified_container #api .localAccount .entry .entry-item #password {
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
       }
       .unified_container #api .localAccount .entry .entry-item .password-label {
-        text-align: left;
-        height: 0;
-        left: 0;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        order:2;
       }
       @keyframes slideInFromLeft {
         0% {
@@ -174,12 +187,8 @@
         .entry-item
         .password-label
         #forgotPassword {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        clear: right;
         cursor: pointer;
-        text-align: right;
+        margin-left: auto;
       }
       .unified_container #api .localAccount .rememberMe {
         position: relative;
@@ -226,7 +235,7 @@
         justify-content: space-between;
         align-items: center;
         order: 1;
-        margin-top: 40px;
+        margin-top: 25px;
       }
 
       .unified_container #api .social .options {
@@ -537,7 +546,9 @@
                         aria-hidden="true"
                         role="alert"
                       >
-                        <p></p>
+                        <p>
+                          Hello world
+                        </p>
                       </div>
                       <input
                         type="email"
@@ -560,7 +571,7 @@
                         >
                       </div>
                       <div class="error itemLevel" aria-hidden="true">
-                        <p role="alert"></p>
+                        <p role="alert">hello world</p>
                       </div>
                       <input
                         type="password"
