@@ -302,9 +302,8 @@ input {
   border-style: none;
   border-bottom: 1px solid var(--grey);
   color: var(--secondary-text);
-  display: inline-block;
+  display: block;
 
-  width: 100% !important;
   border-radius: 0;
 
   font-family: Mundial;
@@ -355,4 +354,12 @@ span.required {
   line-height: 20px;
   letter-spacing: 0px;
   text-align: left;
+}
+
+.Password .attrEntry {
+  height: auto;
+}
+
+.Password .error {
+  min-height: 16px;
 }
