@@ -357,7 +357,7 @@ span.required {
 }
 
 .Password .attrEntry {
-  height: auto;
+  height: auto !important;
 }
 
 .Password .error {
