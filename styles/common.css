@@ -363,3 +363,7 @@ span.required {
 .Password .error {
   min-height: 16px;
 }
+
+.verifying-modal {
+  display: none;
+}
