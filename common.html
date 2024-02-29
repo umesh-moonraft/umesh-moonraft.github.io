@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Choose your account</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="preload"
+      href="https://umesh-moonraft.github.io/styles/common.css"
+      as="style"
+      type="text/css"
+    />
+    <link
+      rel="preload"
+      href="https://umesh-moonraft.github.io/styles/header.css"
+      as="style"
+      type="text/css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://umesh-moonraft.github.io/styles/common.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://umesh-moonraft.github.io/styles/header.css"
+    />
+
+    <style>
+      .unified_container #api {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .unified_container #api .intro {
+        display: none;
+      }
+
+      .unified_container #api .divider {
+        display: none;
+      }
+      .unified_container #api .localAccount {
+        position: relative;
+        width: 100%;
+      }
+      .unified_container #api .localAccount .intro h2 {
+        font-size: 20px;
+        display: none;
+      }
+
+      .unified_container #api .localAccount .entry .buttons button {
+        margin-top: 40px;
+      }
+      .forgot-password {
+        text-align: left;
+      }
+      .forgot-password.center-height {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        clear: right;
+        cursor: pointer;
+        text-align: right;
+      }
+
+      .unified_container #api .localAccount .entry .entry-item {
+        position: relative;
+        width: 100%;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        display: block;
+      }
+      .unified_container #api .localAccount .entry .entry-item label {
+        display: none;
+      }
+      .unified_container #api .localAccount .entry .entry-item input {
+        outline: 0;
+        background-color: transparent !important;
+        background-image: none !important;
+        border-style: none;
+        border-bottom: 1px solid var(--grey);
+        color: var(--secondary-text);
+        display: inline-block;
+        /* transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s !important; */
+        width: 100% !important;
+        /* -o-transition: border-color ease-in-out 0.15s, */
+        /* box-shadow ease-in-out 0.15s !important; */
+        /* -webkit-transition: border-color ease-in-out 0.15s, */
+        /* -webkit-box-shadow ease-in-out 0.15s !important; */
+
+        font-family: Mundial;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+        text-align: left;
+        padding-block: 6px;
+        padding-inline: 4px;
+      }
+
+      .unified_container
+        #api
+        .localAccount
+        .entry
+        .entry-item
+        input::placeholder,
+      .unified_container
+        #api
+        .localAccount
+        .entry
+        .entry-item
+        input::-webkit-input-placeholder {
+        color: var(--grey);
+        font-family: Mundial;
+        font-size: 20px;
+        font-weight: 100;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+        text-align: left;
+      }
+
+      .unified_container #api .localAccount .entry .entry-item #password {
+        margin-bottom: 20px;
+      }
+      .unified_container #api .localAccount .entry .entry-item .password-label {
+        text-align: left;
+        height: 0;
+        left: 0;
+        width: 100%;
+      }
+      @keyframes slideInFromLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-30%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .create {
+        animation: 0.5s ease-out 0s 1 slideInFromLeft;
+      }
+      .unified_container
+        #api
+        .localAccount
+        .entry
+        .entry-item
+        .password-label
+        #forgotPassword {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        clear: right;
+        cursor: pointer;
+        text-align: right;
+      }
+      .unified_container #api .localAccount .rememberMe {
+        position: relative;
+        margin-top: -2.25rem;
+        text-align: left;
+        width: 16rem;
+      }
+      .unified_container #api .localAccount .rememberMe.align-to-left {
+        margin-top: 1rem;
+        text-align: left;
+      }
+
+      .unified_container #api .localAccount .create p {
+        text-align: right;
+        margin-top: 7rem;
+        margin-right: -1.5rem;
+      }
+      .unified_container #api .claims-provider-list-text-links p {
+        text-align: right;
+        margin-top: 7rem;
+      }
+      .unified_container #api .localAccount .create #createAccount {
+        border-radius: 0.2rem;
+        display: inline-block;
+        font-size: 1em;
+        font-weight: 400;
+        height: inherit;
+        line-height: 1.3333333;
+        padding: 10px 16px;
+        text-align: center;
+        touch-action: manipulation;
+        user-select: none;
+        white-space: nowrap;
+        -moz-user-select: none;
+        -ms-touch-action: manipulation;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        width: auto;
+        margin-top: -3rem;
+        cursor: pointer;
+      }
+      .unified_container #api .social {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        order: 1;
+        margin-top: 40px;
+      }
+
+      .unified_container #api .social .options {
+        display: flex;
+        gap: 16px;
+      }
+      .unified_container #api .accountButton {
+        position: relative;
+        display: block;
+        height: 64px;
+        overflow: hidden;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0px;
+
+        border: 1px solid #00a3ff;
+        border-radius: 32px;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      #api .accountButton::before {
+        position: absolute;
+        content: "";
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        background-color: white;
+        left: 12px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .claims-provider-list-text-links-bottom-under-form {
+        text-align: right;
+      }
+      @media (max-width: 100%) {
+        .unified_container {
+          margin-top: auto;
+          margin-bottom: auto;
+          height: 550px;
+        }
+        .unified_container {
+          padding: 15px 10px;
+          margin-top: 20px;
+        }
+        .unified_container .companyName {
+          display: none;
+        }
+        .unified_container .companyLogo {
+          display: block;
+        }
+        .unified_container h3 {
+          display: block;
+        }
+        .unified_container #api {
+          width: auto;
+        }
+        .unified_container #api .social {
+          top: 370px;
+          width: auto;
+        }
+        .unified_container #api .social .options .accountButton {
+          height: 40px;
+        }
+        .unified_container #api .social .options #FacebookExchange {
+          background-size: 12px;
+          background-position: 50% 75%;
+          margin-bottom: 10px;
+        }
+        .unified_container #api .social .options #GoogleExchange {
+          background-size: 20px;
+          background-position: 50% 75%;
+          margin-bottom: 10px;
+        }
+        .unified_container #api .social .options #TwitterExchange {
+          background-size: 20px;
+          background-position-x: 56px;
+          background-position-y: 14px;
+          margin-bottom: 10px;
+        }
+        .unified_container #api .localAccount {
+          top: 20px;
+        }
+        .unified_container #api .localAccount .entry .entry-item {
+          display: block;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        .unified_container
+          #api
+          .localAccount
+          .entry
+          .entry-item
+          .password-label {
+          top: 145px;
+        }
+        .unified_container
+          #api
+          .localAccount
+          .entry
+          .entry-item
+          #logonIdentifier {
+          height: 40px;
+        }
+        .unified_container #api .localAccount .entry .entry-item #password {
+          height: 40px;
+        }
+        .unified_container #api .localAccount .entry .entry-item:nth-child(2) {
+          width: auto;
+          float: left;
+        }
+        .unified_container #api .localAccount .entry .buttons #next {
+          width: auto;
+          text-indent: -4px;
+          height: 40px;
+          line-height: 0;
+          position: relative;
+          bottom: 5px;
+          left: 8px;
+        }
+      }
+      @media screen and (max-width: 320px) {
+        .unified_container
+          #api
+          .localAccount
+          .entry
+          .entry-item
+          .password-label
+          #forgotPassword {
+          right: 0;
+          bottom: 0;
+        }
+        .forgot-password.center-height {
+          right: 0;
+          bottom: 0;
+        }
+        .unified_container #api .localAccount .rememberMe {
+          width: 50%;
+        }
+      }
+      #simplemodal-overlay {
+        background: #000;
+      }
+      #simplemodal-container {
+        background: #fff;
+        padding: 30px 20px 20px;
+        text-align: left;
+        -webkit-box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      }
+      #simplemodal-container h2 {
+        /* font-family: Arial, Helvetica, sans-serif; */
+        color: #1c5b96;
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 10px;
+      }
+      #simplemodal-container h1 {
+        margin-bottom: 20px;
+      }
+
+      #api .intro p {
+        text-align: left;
+        font-size: 1.5em;
+        margin: auto;
+        margin-top: 1.5rem;
+      }
+      table {
+        width: 40%;
+        margin: auto;
+      }
+      .alert-modal {
+        display: none;
+      }
+
+      #SignInWithLogonNameExchange {
+        background-color: #fff;
+        background-size: 10%;
+        background-position-x: 2%;
+        background-position-y: 50%;
+        color: #296ec6;
+        border-color: #296ec6;
+        border-width: thin;
+        border-style: solid;
+        background-repeat: no-repeat;
+        border-radius: 0.2rem;
+        width: 100%;
+        font-size: 1em;
+        margin-left: auto;
+        margin-bottom: 0;
+      }
+
+      #api .heading {
+        display: none !important;
+      }
+
+      .entry,
+      .localAccount {
+        display: contents;
+      }
+
+      .unified_container #api .social .intro h2 {
+        display: none;
+      }
+
+      #api .social .intro::before {
+        content: "Or Log in with";
+        color: var(--secondary-text);
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 24px;
+        letter-spacing: -0.03em;
+        text-align: left;
+        margin: 0;
+      }
+    </style>
+    <style>
+      .helpLink {
+        display: none;
+      }
+
+      #continue {
+        margin-top: 16px;
+        margin-bottom: 24px;
+      }
+      .emailVerificationControl_li {
+        margin-bottom: 40px;
+      }
+
+      .emailVerificationControl_li .buttons {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .verificationSuccessText,
+      .verificationInfoText {
+        margin-bottom: 16px !important;
+        font-family: Mundial;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 20px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        color: var(--secondary-text);
+      }
+
+      header .outer-container {
+        height: 318px;
+      }
+
+      header .container {
+        background-image: url("https://umesh-moonraft.github.io/images/auth_banner_email_signup.png");
+      }
+
+      .buttons button.sendNewCode {
+        all: unset;
+        margin-top: 24px;
+        font-family: Mundial;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 20px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        color: #000000;
+        cursor: pointer;
+      }
+
+      .buttons button.sendNewCode::after {
+        content: "";
+        width: 24px;
+        height: 24px;
+        background: url(https://umesh-moonraft.github.io/images/chevron_right.svg)
+          no-repeat;
+        background-size: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 8px;
+      }
+
+      #attributeList .Password .attrEntry,
+      #attributeList .EmailBox .attrEntry,
+      #attributeList .TextBox .attrEntry {
+        display: flex;
+        flex-direction: column;
+        height: 67px;
+      }
+
+      .attrEntry .error {
+        order: 1;
+      }
+
+      main {
+        gap: 32px;
+      }
+
+      #attributeVerification {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      #attributeVerification > .buttons {
+        margin-top: auto;
+      }
+
+      .changeClaims {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="outer-container">
+          <div class="container">
+            <img
+              class="logo"
+              src="https://umesh-moonraft.github.io/images/homely_logo.png"
+              alt="homely-logo"
+            />
+            <div class="title">
+              <span>User</span>
+              <span>Details</span>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="container unified_container" role="presentation">
+        <div id="api" data-name="SelfAsserted" role="main">
+          <div class="heading">
+            <h1 role="heading">User Details</h1>
+          </div>
+          <div class="buttons"></div>
+          <div class="intro">
+            <p>Please provide the following details.</p>
+          </div>
+          <form id="attributeVerification">
+            <div
+              id="requiredFieldMissing"
+              class="error pageLevel"
+              style="display: none"
+              aria-hidden="true"
+            >
+              A required field is missing. Please fill out all required fields
+              and try again.
+            </div>
+            <div
+              id="fieldIncorrect"
+              class="error pageLevel"
+              style="display: none"
+              aria-hidden="true"
+            >
+              One or more fields are filled out incorrectly. Please check your
+              entries and try again.
+            </div>
+            <div
+              id="captchaUnresolved"
+              class="error pageLevel"
+              style="display: none"
+              aria-hidden="true"
+            >
+              Captcha challenge is not resolved. Please solve it to proceed.
+            </div>
+            <div
+              id="claimVerificationServerError"
+              class="error pageLevel"
+              style="display: none"
+              aria-hidden="true"
+            ></div>
+            <div id="attributeList" class="attr">
+              <ul>
+                <li class="VerificationControl emailVerificationControl_li">
+                  <div class="attrEntry">
+                    <label
+                      id="emailVerificationControl_label"
+                      for="emailVerificationControl"
+                      class=""
+                    ></label>
+                    <div class="error itemLevel" role="alert"></div>
+                    <div
+                      class="verificationControlContent"
+                      id="emailVerificationControl"
+                    >
+                      <div
+                        class="verificationInfoText"
+                        style="margin-bottom: 5px"
+                      >
+                        <div
+                          id="emailVerificationControl_info_message"
+                          aria-hidden="true"
+                          role="alert"
+                          aria-label="Verification is necessary. Please click Send button."
+                          style="display: none"
+                        >
+                          Verification is necessary. Please click Send button.
+                        </div>
+                      </div>
+                      <div
+                        class="verificationSuccessText"
+                        style="margin-bottom: 5px"
+                      >
+                        <div
+                          id="emailVerificationControl_success_message"
+                          aria-hidden="false"
+                          role="alert"
+                          aria-label="Verification code has been sent to your inbox. Please copy it to the input box below."
+                          style="display: inline"
+                        >
+                          Verification code has been sent to your inbox. Please
+                          copy it to the input box below.
+                        </div>
+                      </div>
+                      <div class="verificationErrorText error">
+                        <div
+                          id="emailVerificationControl_error_message"
+                          aria-hidden="true"
+                          role="alert"
+                          aria-label=""
+                          style="display: none"
+                        ></div>
+                      </div>
+                      <ul>
+                        <li
+                          class="EmailBox email_li email"
+                          aria-hidden="false"
+                          style="display: inline"
+                        >
+                          <div class="attrEntry">
+                            <label id="email_label" for="email" class="required"
+                              >Email Address</label
+                            >
+                            <div
+                              class="error itemLevel"
+                              role="alert"
+                              aria-hidden="true"
+                              aria-label=""
+                            ></div>
+                            <input
+                              id="email"
+                              class="textInput"
+                              type="email"
+                              placeholder="Email Address"
+                              pattern="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$"
+                              title="Email address that can be used to contact you."
+                              aria-required="true"
+                              autofocus="autofocus"
+                            /><a
+                              class="helpLink tiny"
+                              href="javascript:void(0)"
+                              data-help="Email address that can be used to contact you."
+                              >What is this?</a
+                            >
+                          </div>
+                        </li>
+                        <li
+                          class="TextBox emailVerificationCode_li VerificationCode"
+                          aria-hidden="false"
+                          style="display: inline"
+                        >
+                          <div class="attrEntry">
+                            <label
+                              id="emailVerificationCode_label"
+                              for="emailVerificationCode"
+                              class="required"
+                              >Verification Code</label
+                            >
+                            <div
+                              class="error itemLevel"
+                              role="alert"
+                              aria-hidden="true"
+                              aria-label=""
+                            ></div>
+                            <input
+                              id="emailVerificationCode"
+                              class="textInput"
+                              type="text"
+                              placeholder="Verification Code"
+                              title="Enter your verification code"
+                              aria-required="true"
+                              autocomplete="off"
+                            /><a
+                              class="helpLink tiny"
+                              href="javascript:void(0)"
+                              data-help="Enter your verification code"
+                              >What is this?</a
+                            >
+                          </div>
+                        </li>
+                      </ul>
+                      <div
+                        class="working"
+                        style="display: none"
+                        aria-hidden="true"
+                        aria-label="Please wait"
+                        aria-live="assertive"
+                        role="alert"
+                      ></div>
+                      <div class="buttons">
+                        <button
+                          class="sendCode"
+                          id="emailVerificationControl_but_send_code"
+                          type="button"
+                          aria-label="Send verification code"
+                          aria-hidden="true"
+                          style="display: none"
+                        >
+                          Send verification code</button
+                        ><button
+                          class="verifyCode"
+                          id="emailVerificationControl_but_verify_code"
+                          type="button"
+                          aria-label="Verify code"
+                          aria-hidden="false"
+                          style="display: inline"
+                        >
+                          Verify code</button
+                        ><button
+                          class="sendNewCode"
+                          id="emailVerificationControl_but_send_new_code"
+                          type="button"
+                          aria-label="Send new code"
+                          aria-hidden="false"
+                          style="display: inline"
+                        >
+                          Send new code</button
+                        ><button
+                          class="changeClaims"
+                          id="emailVerificationControl_but_change_claims"
+                          type="button"
+                          aria-label="Change e-mail"
+                          aria-hidden="true"
+                          style="display: none"
+                        >
+                          Change e-mail
+                        </button>
+                      </div>
+                    </div>
+                    <a class="helpLink tiny" href="javascript:void(0)"
+                      >What is this?</a
+                    >
+                  </div>
+                </li>
+                <li class="Password newPassword_li">
+                  <div class="attrEntry">
+                    <label
+                      id="newPassword_label"
+                      for="newPassword"
+                      class="required"
+                      >New Password</label
+                    >
+                    <div class="error itemLevel" role="alert"></div>
+                    <input
+                      id="newPassword"
+                      class="textInput"
+                      type="password"
+                      placeholder="New Password"
+                      title="Enter new password"
+                      autocomplete="new-password"
+                      aria-required="true"
+                      aria-disabled="true"
+                      disabled="disabled"
+                      tabindex="-1"
+                    /><a
+                      class="helpLink tiny"
+                      href="javascript:void(0)"
+                      data-help="Enter new password"
+                      >What is this?</a
+                    >
+                  </div>
+                </li>
+                <li class="Password reenterPassword_li">
+                  <div class="attrEntry">
+                    <label
+                      id="reenterPassword_label"
+                      for="reenterPassword"
+                      class="required"
+                      >Confirm New Password</label
+                    >
+                    <div class="error itemLevel" role="alert"></div>
+                    <input
+                      id="reenterPassword"
+                      class="textInput"
+                      type="password"
+                      placeholder="Confirm New Password"
+                      title="Confirm new password"
+                      autocomplete="new-password"
+                      aria-required="true"
+                      aria-disabled="true"
+                      disabled="disabled"
+                      tabindex="-1"
+                    /><a
+                      class="helpLink tiny"
+                      href="javascript:void(0)"
+                      data-help="Confirm new password"
+                      >What is this?</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="buttons">
+              <button
+                id="continue"
+                type="submit"
+                form="attributeVerification"
+                aria-disabled="true"
+                aria-label="Create"
+                tabindex="-1"
+              >
+                Create</button
+              ><button id="cancel" aria-label="Cancel" formnovalidate="">
+                Cancel
+              </button>
+            </div>
+
+            <div
+              class="verifying-modal"
+              aria-live="assertive"
+              aria-labelledby="verifying_blurb"
+            >
+              <div id="verifying_blurb"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
